@@ -1,4 +1,4 @@
-"""FL-XGB-Thesis: Flower App configuration (self-contained copy)."""
+"""Flower App configuration (self-contained copy)."""
 
 # Hardware
 CPU_THREADS = 1
