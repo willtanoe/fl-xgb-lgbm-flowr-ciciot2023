@@ -1,4 +1,4 @@
-# FL-XGB-Thesis: Federated Learning + XGBoost/LightGBM for Intrusion Detection
+# Federated Learning + XGBoost/LightGBM for Intrusion Detection
 
 **Network Intrusion Detection on CICIoT2023 using Federated Learning with Tree-Based Models**
 
