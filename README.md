@@ -195,7 +195,6 @@ TREES_PER_ROUND = 20           # Trees added per client per round (total: 10×20
 ## Quick Start
 
 ```bash
-```bash
 # Open notebooks in order:
 notebooks/01_eda.ipynb
 notebooks/02_preprocessing.ipynb
