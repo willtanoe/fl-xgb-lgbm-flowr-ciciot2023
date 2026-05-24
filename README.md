@@ -249,14 +249,16 @@ pyarrow>=14.0
 
 ## Expected Results
 
+> *Numbers TBD — run notebooks 05, 06, and 07 to populate.*
+
 | Model | Accuracy | F1 Macro |
 |-------|----------|----------|
-| **Centralized XGBoost** | ~99% | ~72% |
-| **Centralized LightGBM** | ~99% | ~70% |
-| **FL XGBoost** (Round-Robin, 10×20 trees) | ~95-99% | ~60-72% |
-| **FL LightGBM** (Round-Robin, 10×20 trees) | ~95-99% | ~60-72% |
+| **Centralized XGBoost** | TBD | TBD |
+| **Centralized LightGBM** | TBD | TBD |
+| **FL XGBoost** (Round-Robin, 10×20 trees) | TBD | TBD |
+| **FL LightGBM** (Round-Robin, 10×20 trees) | TBD | TBD |
 
-F1 Macro is lower than Accuracy due to class imbalance (34 classes). FL models typically underperform centralized by 5-10% F1 due to non-IID data partitioning.
+F1 Macro is expected to be lower than Accuracy due to class imbalance (34 classes). FL models may underperform centralized due to non-IID data partitioning.
 
 ---
 
