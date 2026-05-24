@@ -50,18 +50,12 @@ The **CICIoT2023** dataset is a comprehensive and modern dataset designed for re
 
 ```
 fl-xgb-thesis/
-├── dataset-raw/            # Symlink → /home/willtanoe/Documents/CICIOT23
-├── src/                    # Python package (data loading, preprocessing, config)
+├── src/                    # Configuration only
 │   ├── __init__.py
-│   ├── config.py           # Canonical configuration constants
-│   ├── data_loader.py      # Data loading utilities
-│   ├── preprocessing.py    # Preprocessing functions
-│   ├── models.py           # XGBoost, LightGBM, CNN, MLP
-│   ├── metrics.py          # F1, AUC, G-mean
-│   └── utils.py            # Seed, logger, memory helpers
-├── flwr_app/               # Flower Application (real FL with Round-Robin)
+│   └── config.py           # XGB_PARAMS, LGB_PARAMS, paths, hardware settings
+├── flwr_app/               # Flower Application (Round-Robin FL)
 │   ├── pyproject.toml      # Flower chart / FAB build config
-│   ├── config.py           # Self-contained config (n_jobs=1, TREES_PER_ROUND=20)
+│   ├── config.py           # n_jobs=1, TREES_PER_ROUND=20, FL_ROUNDS=10
 │   ├── client_app.py       # ClientApp: incremental XGBoost/LightGBM
 │   └── server_app.py       # ServerApp: Round-Robin strategy, metric logging
 ├── notebooks/              # Main pipeline (run in order)
@@ -74,8 +68,9 @@ fl-xgb-thesis/
 │   ├── 07_evaluation.ipynb         # Full test-set evaluation + FL vs centralized
 │   ├── 08_hyperparameter_tuning.ipynb # RandomizedSearchCV
 │   └── 09_statistical_analysis.ipynb  # Significance tests
-├── results/                # Output: parquet, models, figures, logs
-├── THESIS.md
+├── results/                # Output: figures, logs
+│   ├── figures/            # Plots (13 PNGs)
+│   └── logs/               # FL history JSONs, evaluation results
 ├── README.md
 └── requirements.txt
 ```
