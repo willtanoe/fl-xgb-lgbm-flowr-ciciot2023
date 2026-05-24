@@ -221,23 +221,19 @@ flwr run /home/willtanoe/Documents/fl-xgb-thesis/flwr_app --stream \
 ## Requirements
 
 ```
-# Core
-numpy>=1.24.0 pandas>=2.0.0 scikit-learn>=1.3.0 scipy>=1.10.0
-
-# Tree Models (CPU only)
-xgboost>=3.2.0 lightgbm>=4.3.0
-
-# Federated Learning
-flwr[simulation]>=1.15.0
-
-# Deep Learning (baselines)
-torch>=2.5.0 torchvision>=0.20.0
-
-# Visualization
-matplotlib>=3.7.0 seaborn>=0.12.0 plotly>=5.15.0
-
-# Utilities
-joblib>=1.3.0 tqdm>=4.65.0 psutil>=5.9.0 pyarrow>=14.0
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-learn>=1.3.0
+xgboost>=2.1.0
+lightgbm>=4.3.0
+flwr[simulation]>=1.14.0
+torch>=2.5.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+joblib>=1.3.0
+tqdm>=4.65.0
+pyarrow>=14.0
 ```
 
 ---
