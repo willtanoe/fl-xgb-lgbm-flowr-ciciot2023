@@ -1,5 +1,5 @@
 # Data
-dataset-raw/
+dataset-raw
 results/preprocessed/
 results/clients/
 results/models/
