@@ -1,4 +1,4 @@
-"""Flower App configuration (self-contained copy)."""
+"""Flower App configuration (FL-specific settings)."""
 
 # Hardware
 CPU_THREADS = 1
