@@ -8,7 +8,7 @@
 
 - **CPU**: Ryzen 7 5700X (8 cores / 16 threads)
 - **RAM**: 16 GB
-- **GPU**: NVIDIA RTX 3060 Ti 8 GB (CNN baselines only)
+- **GPU**: NVIDIA RTX 3060 Ti 8 GB
 
 ---
 
@@ -63,8 +63,8 @@ fl-xgb-thesis/
 │   ├── 02_preprocessing.ipynb      # Cleaning, scaling, encode labels
 │   ├── 03_data_analysis.ipynb      # Deeper data exploration
 │   ├── 04_fl_setup.ipynb           # Client partitioning (Dirichlet non-IID)
-│   ├── 05_fl_training.ipynb        # FL training: flwr run (Round-Robin)
-│   ├── 06_baseline_comparison.ipynb# Centralized baselines (XGB, LGB, CNN, MLP)
+│   ├── 05_baseline_comparison.ipynb# Centralized baselines (XGBoost, LightGBM)
+│   ├── 06_fl_training.ipynb        # FL training: flwr run (Round-Robin)
 │   ├── 07_evaluation.ipynb         # Full test-set evaluation + FL vs centralized
 │   ├── 08_hyperparameter_tuning.ipynb # RandomizedSearchCV
 │   └── 09_statistical_analysis.ipynb  # Significance tests
@@ -95,10 +95,19 @@ Creates `train.parquet`, `val.parquet`, `test.parquet`, scaler, label encoder.
 
 Partitions training data into 5 non-IID client splits via Dirichlet(α=1.0).
 
-### Phase 3: Federated Learning
+### Phase 3: Baseline Comparison
 
 ```
-05_fl_training.ipynb
+05_baseline_comparison.ipynb
+```
+
+Trains centralized XGBoost and LightGBM on 200k subsample, evaluates on test set.
+Saves trained models to `results/models/` for downstream notebooks.
+
+### Phase 4: Federated Learning
+
+```
+06_fl_training.ipynb
 ```
 
 **Round-Robin Incremental FL** — 1 client per round adds 20 trees to the global model.
@@ -112,14 +121,6 @@ flwr run /home/willtanoe/Documents/fl-xgb-thesis/flwr_app --stream \
   --federation-config "client-resources-num-cpus=1 num-supernodes=5"
 ```
 
-### Phase 4: Baseline Comparison
-
-```
-06_baseline_comparison.ipynb
-```
-
-Trains centralized XGBoost, LightGBM, CNN, MLP — evaluates on test set.
-
 ### Phase 5: Evaluation
 
 ```
@@ -127,7 +128,7 @@ Trains centralized XGBoost, LightGBM, CNN, MLP — evaluates on test set.
 ```
 
 Full metrics on test set: F1 Macro, F1 Weighted, Accuracy, per-class F1, confusion matrix.
-Loads FL training history for FL-vs-centralized comparison plots.
+Loads centralized models from NB05 and FL models from NB06 for FL-vs-centralized comparison.
 
 ### Phase 6: Hyperparameter Tuning
 
@@ -162,7 +163,7 @@ Uses bootstrapped test-set predictions for robust comparison.
 | **Class Imbalance** | No weighting (F1 macro reports honestly) | 34 classes, heavy imbalance |
 | **Primary Metric** | F1 Macro | Honest for imbalanced multi-class |
 | **Data Subsample** | `TRAIN_SUBSAMPLE_RATIO=0.25` | 25% of train rows for faster iteration |
-| **Memory Safety** | `n_jobs=1`, `val_sample.parquet` (10k rows) | Prevents OOM on 16 GB system |
+| **Memory Safety** | `val_sample.parquet` (10k rows), FL `n_jobs=1` | Prevents OOM on 16 GB system |
 
 ---
 
@@ -180,7 +181,7 @@ DIRICHLET_ALPHA = 1.0          # Non-IID partitioning (lower = more skewed)
 Key settings in `flwr_app/config.py`:
 
 ```python
-CPU_THREADS = 1                # n_jobs for XGBoost & LightGBM
+CPU_THREADS = 1                # FL client n_jobs for XGBoost & LightGBM (centralized uses 8)
 FL_ROUNDS = 10                 # Must match src/config.py
 TREES_PER_ROUND = 20           # Trees added per client per round (total: 10×20=200)
 ```
@@ -190,16 +191,17 @@ TREES_PER_ROUND = 20           # Trees added per client per round (total: 10×20
 ## Quick Start
 
 ```bash
-# Open notebooks in order:
-notebooks/01_eda.ipynb
-notebooks/02_preprocessing.ipynb
-notebooks/03_data_analysis.ipynb
-notebooks/04_fl_setup.ipynb
-notebooks/05_fl_training.ipynb
-notebooks/06_baseline_comparison.ipynb
-notebooks/07_evaluation.ipynb
-notebooks/08_hyperparameter_tuning.ipynb
-notebooks/09_statistical_analysis.ipynb
+# Phase 1–2: Preprocessing + Client Setup
+01_eda.ipynb → 02_preprocessing.ipynb → 03_data_analysis.ipynb → 04_fl_setup.ipynb
+
+# Phase 3: Baseline Training
+05_baseline_comparison.ipynb
+
+# Phase 4: Federated Learning
+06_fl_training.ipynb
+
+# Phase 5–7: Evaluation, Tuning & Statistical Analysis
+07_evaluation.ipynb → 08_hyperparameter_tuning.ipynb → 09_statistical_analysis.ipynb
 
 # Or train FL from terminal:
 cd flwr_app
@@ -228,7 +230,6 @@ scikit-learn>=1.3.0
 xgboost>=2.1.0
 lightgbm>=4.3.0
 flwr[simulation]>=1.14.0
-torch>=2.5.0
 matplotlib>=3.7.0
 seaborn>=0.12.0
 joblib>=1.3.0
@@ -240,21 +241,22 @@ pyarrow>=14.0
 
 ## Training Notes
 
-- **Resource Safety**: `n_jobs=1` + `init-args-num-cpus=2` + `val_sample.parquet` ensures the PC stays responsive under YouTube/Discord.
+- **Resource Safety**: `n_jobs=CPU_THREADS` (8) for centralized models; `n_jobs=1` in `flwr_app/config.py` for FL clients to prevent CPU contention.
 - **FL Efficiency**: Round-Robin runs 1 client per round, eliminating OOM risk from 5 concurrent clients.
-- **Full data**: Set `TRAIN_SUBSAMPLE_RATIO=1.0` in `src/config.py`, then re-run notebooks 02, 04, and 05.
+- **Full data**: Set `TRAIN_SUBSAMPLE_RATIO=1.0` in `src/config.py`, then re-run notebooks 02, 04, 05, and 06.
 
 ---
 
 ## Expected Results
 
-| Model | Accuracy | F1 Macro | F1 Weighted |
-|-------|----------|----------|-------------|
-| **FL-XGBoost** (Round-Robin) | ~90-99% | ~68-75% | ~90-95% |
-| **FL-LightGBM** (Round-Robin) | ~90-99% | ~68-75% | ~90-95% |
-| **Centralized XGBoost** | ~90-99% | ~70-80% | ~90-95% |
+| Model | Accuracy | F1 Macro |
+|-------|----------|----------|
+| **Centralized XGBoost** | ~99% | ~72% |
+| **Centralized LightGBM** | ~99% | ~70% |
+| **FL XGBoost** (Round-Robin, 10×20 trees) | ~95-99% | ~60-72% |
+| **FL LightGBM** (Round-Robin, 10×20 trees) | ~95-99% | ~60-72% |
 
-F1 Macro is lower than Accuracy due to class imbalance (34 classes). The validation-sample metrics tend to be slightly higher than test-set metrics.
+F1 Macro is lower than Accuracy due to class imbalance (34 classes). FL models typically underperform centralized by 5-10% F1 due to non-IID data partitioning.
 
 ---
 
