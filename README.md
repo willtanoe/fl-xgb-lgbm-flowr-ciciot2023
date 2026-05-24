@@ -14,7 +14,17 @@
 
 ## Dataset: CICIoT2023
 
-Located at `/home/willtanoe/Documents/CICIOT23`
+[![Kaggle](https://img.shields.io/badge/Kaggle-Dataset-blue)](https://www.kaggle.com/datasets/himadri07/ciciot2023)
+
+The **CICIoT2023** dataset is a comprehensive and modern dataset designed for research in Internet of Things (IoT) security, particularly for intrusion detection and anomaly detection systems. Released by the **Canadian Institute for Cybersecurity (CIC)**, this dataset reflects real-world IoT network traffic and attack scenarios, providing a valuable resource for machine learning and cybersecurity research.
+
+**Key Features:**
+- Contains a mix of normal and malicious IoT network traffic
+- Includes **34 distinct attack types**, covering modern and advanced cyber threat scenarios
+- Provides labeled data suitable for supervised machine learning models
+- Offers extracted network flow features (e.g., packet size, duration, flags, statistical summaries) for traffic classification and anomaly detection
+
+**Data splits** (pre-partitioned by source):
 
 | Split | Rows | Features | Description |
 |-------|------|----------|-------------|
@@ -30,6 +40,9 @@ Located at `/home/willtanoe/Documents/CICIOT23`
 - Protocol counts: `HTTP`, `HTTPS`, `DNS`, `TCP`, `UDP`, etc.
 - Statistical: `Min`, `Max`, `AVG`, `Std`, `IAT`, `Number`
 - Derived: `Magnitue`, `Radius`, `Covariance`, `Variance`, `Weight`
+
+> **Credit**: Dataset sourced from [Kaggle — CICIoT2023 by Himadri07](https://www.kaggle.com/datasets/himadri07/ciciot2023).  
+> Original paper: Sharafaldin et al. "CICIoT2023: A Real-Time Dataset for IoT Intrusion Detection."
 
 ---
 
