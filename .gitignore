@@ -13,7 +13,9 @@ __pycache__/
 # Flower / FLWR
 .flwr/
 
-# Large generated files
+# Result outputs
+results/figures/
+results/logs/
 *.parquet
 *.ubj
 *.npy

@@ -12,7 +12,7 @@ from flwr.clientapp import ClientApp
 
 from config import XGB_PARAMS, LGB_PARAMS, SEED, NUM_CLIENTS, TREES_PER_ROUND
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path("/home/willtanoe/Documents/fl-xgb-thesis")
 PREPROCESSED_DIR = BASE_DIR / "results" / "preprocessed"
 CLIENTS_DIR = BASE_DIR / "results" / "clients"
 

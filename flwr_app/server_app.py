@@ -2,6 +2,7 @@ import os
 import json
 import time
 from pathlib import Path
+import numpy as np
 
 from flwr.common import Context
 from flwr.server import ServerAppComponents, ServerConfig
@@ -10,19 +11,24 @@ from flwr.serverapp import ServerApp
 
 from config import FL_ROUNDS, FRACTION_FIT, NUM_CLIENTS, TREES_PER_ROUND
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path("/home/willtanoe/Documents/fl-xgb-thesis")
 LOGS_DIR = BASE_DIR / "results" / "logs"
+MODELS_DIR = BASE_DIR / "results" / "models"
 os.makedirs(LOGS_DIR, exist_ok=True)
+os.makedirs(MODELS_DIR, exist_ok=True)
 
 
 class RoundRobinStrategy(FedAvg):
     """Round-Robin FL: 1 client fit per round, all clients evaluate.
     
     Overrides aggregate_fit to skip weighted averaging of raw model bytes.
+    Saves final model after last round.
     """
 
-    def __init__(self, **kwargs):
+    def __init__(self, model_type, num_rounds, **kwargs):
         super().__init__(**kwargs)
+        self.model_type = model_type
+        self.num_rounds = num_rounds
 
     def aggregate_fit(self, server_round, results, failures):
         if not results:
@@ -30,6 +36,25 @@ class RoundRobinStrategy(FedAvg):
         _, fit_res = results[0]
         total_examples = fit_res.num_examples
         print(f"  └─ Global model updated (+{TREES_PER_ROUND} trees, {total_examples} samples)")
+
+        if server_round == self.num_rounds:
+            try:
+                if self.model_type == "xgb":
+                    import xgboost as xgb
+                    model_bytes = np.array(fit_res.parameters.tensors[0]).tobytes()
+                    booster = xgb.Booster(model_file=None)
+                    booster.load_model(bytearray(model_bytes))
+                    booster.save_model(os.path.join(MODELS_DIR, "fl_xgboost.ubj"))
+                    print(f"  └─ Saved FL XGBoost: results/models/fl_xgboost.ubj")
+                elif self.model_type == "lgb":
+                    import lightgbm as lgb
+                    model_str = np.array(fit_res.parameters.tensors[0]).tobytes().decode("utf-8")
+                    model = lgb.Booster(model_str=model_str)
+                    model.save_model(os.path.join(MODELS_DIR, "fl_lightgbm.txt"))
+                    print(f"  └─ Saved FL LightGBM: results/models/fl_lightgbm.txt")
+            except Exception as e:
+                print(f"  └─ Failed to save final model: {e}")
+
         return fit_res.parameters, {}
 
 
@@ -93,6 +118,7 @@ def server_fn(context: Context):
         return {"f1_macro": avg_f1, "accuracy": avg_acc}
 
     strategy = RoundRobinStrategy(
+        model_type=model_type, num_rounds=num_rounds,
         fraction_fit=0.2,        # ~1 client per round (0.2 × 5 = 1)
         fraction_evaluate=1.0,   # all clients evaluate
         min_fit_clients=1,

@@ -5,7 +5,7 @@ from pathlib import Path
 BASE_DIR    = Path(__file__).parent.parent
 DATA_DIR    = BASE_DIR / "dataset-raw"
 RESULTS_DIR = BASE_DIR / "results"
-LOGS_DIR    = BASE_DIR / "logs"
+LOGS_DIR = BASE_DIR / "results" / "logs"
 
 TRAIN_CSV  = DATA_DIR / "train" / "train.csv"
 VAL_CSV    = DATA_DIR / "validation" / "validation.csv"
@@ -59,18 +59,6 @@ LGB_PARAMS = {
     "verbose":            -1,
     "n_jobs":             CPU_THREADS,
     "force_col_wise":     True,
-}
-
-CNN_PARAMS = {
-    "input_dim":          46,
-    "num_classes":        34,
-    "hidden_dims":        [256, 128, 64],
-    "dropout":            0.3,
-    "batch_size":         4096,
-    "epochs":             30,
-    "lr":                 1e-3,
-    "weight_decay":       1e-4,
-    "device":             GPU_DEVICE,
 }
 
 LOW_MEM_MODE          = True
