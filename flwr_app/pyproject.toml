@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fl-xgb-thesis"
+version = "1.0.0"
+description = "Federated Learning with XGBoost and LightGBM"
+requires-python = ">=3.10"
+dependencies = [
+    "flwr[simulation]>=1.13,<2.0",
+    "xgboost",
+    "lightgbm",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "joblib",
+    "pyarrow",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.flwr.app]
+publisher = "thesis"
+
+[tool.flwr.app.components]
+clientapp = "client_app:app"
+serverapp = "server_app:server_app"
+
+[tool.flwr.app.config]
+model_type = "xgb"
+num_rounds = 10

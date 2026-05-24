@@ -1,0 +1,384 @@
+{
+  "top_features": [
+    {
+      "feature": "ack_flag_number",
+      "importance": 0.23726008832454681
+    },
+    {
+      "feature": "Min",
+      "importance": 0.16756026446819305
+    },
+    {
+      "feature": "Protocol Type",
+      "importance": 0.11457545310258865
+    },
+    {
+      "feature": "Number",
+      "importance": 0.1052406057715416
+    },
+    {
+      "feature": "ICMP",
+      "importance": 0.09661200642585754
+    },
+    {
+      "feature": "fin_flag_number",
+      "importance": 0.07230158150196075
+    },
+    {
+      "feature": "IAT",
+      "importance": 0.04787971451878548
+    },
+    {
+      "feature": "psh_flag_number",
+      "importance": 0.03211712837219238
+    },
+    {
+      "feature": "Tot size",
+      "importance": 0.021997986361384392
+    },
+    {
+      "feature": "flow_duration",
+      "importance": 0.019148048013448715
+    },
+    {
+      "feature": "Variance",
+      "importance": 0.01693832129240036
+    },
+    {
+      "feature": "rst_count",
+      "importance": 0.014328200370073318
+    },
+    {
+      "feature": "syn_flag_number",
+      "importance": 0.011812261305749416
+    },
+    {
+      "feature": "Weight",
+      "importance": 0.011209282092750072
+    },
+    {
+      "feature": "Std",
+      "importance": 0.00600510323420167
+    },
+    {
+      "feature": "AVG",
+      "importance": 0.005438471678644419
+    },
+    {
+      "feature": "Tot sum",
+      "importance": 0.0033694568555802107
+    },
+    {
+      "feature": "Magnitue",
+      "importance": 0.002823574235662818
+    },
+    {
+      "feature": "HTTP",
+      "importance": 0.0018724483670666814
+    },
+    {
+      "feature": "fin_count",
+      "importance": 0.0017101591220125556
+    },
+    {
+      "feature": "TCP",
+      "importance": 0.0016458254540339112
+    },
+    {
+      "feature": "Header_Length",
+      "importance": 0.0013605814892798662
+    },
+    {
+      "feature": "Covariance",
+      "importance": 0.0008621893939562142
+    },
+    {
+      "feature": "urg_count",
+      "importance": 0.0008233448606915772
+    },
+    {
+      "feature": "ack_count",
+      "importance": 0.000821901427116245
+    },
+    {
+      "feature": "Rate",
+      "importance": 0.0006878625135868788
+    },
+    {
+      "feature": "rst_flag_number",
+      "importance": 0.0006518338923342526
+    },
+    {
+      "feature": "UDP",
+      "importance": 0.0006044661859050393
+    },
+    {
+      "feature": "Max",
+      "importance": 0.0005608976352959871
+    },
+    {
+      "feature": "Radius",
+      "importance": 0.00044834468280896544
+    }
+  ],
+  "class_distribution": [
+    {
+      "class_id": 6,
+      "class_name": "DDoS-ICMP_Flood",
+      "count": 212022,
+      "percentage": 15.4423
+    },
+    {
+      "class_id": 14,
+      "class_name": "DDoS-UDP_Flood",
+      "count": 159389,
+      "percentage": 11.6089
+    },
+    {
+      "class_id": 13,
+      "class_name": "DDoS-TCP_Flood",
+      "count": 132125,
+      "percentage": 9.6231
+    },
+    {
+      "class_id": 8,
+      "class_name": "DDoS-PSHACK_Flood",
+      "count": 120313,
+      "percentage": 8.7628
+    },
+    {
+      "class_id": 10,
+      "class_name": "DDoS-SYN_Flood",
+      "count": 119663,
+      "percentage": 8.7155
+    },
+    {
+      "class_id": 9,
+      "class_name": "DDoS-RSTFINFlood",
+      "count": 118860,
+      "percentage": 8.657
+    },
+    {
+      "class_id": 12,
+      "class_name": "DDoS-SynonymousIP_Flood",
+      "count": 105521,
+      "percentage": 7.6855
+    },
+    {
+      "class_id": 21,
+      "class_name": "DoS-UDP_Flood",
+      "count": 97605,
+      "percentage": 7.1089
+    },
+    {
+      "class_id": 20,
+      "class_name": "DoS-TCP_Flood",
+      "count": 78543,
+      "percentage": 5.7206
+    },
+    {
+      "class_id": 19,
+      "class_name": "DoS-SYN_Flood",
+      "count": 59393,
+      "percentage": 4.3258
+    },
+    {
+      "class_id": 1,
+      "class_name": "BenignTraffic",
+      "count": 32385,
+      "percentage": 2.3587
+    },
+    {
+      "class_id": 23,
+      "class_name": "Mirai-greeth_flood",
+      "count": 29033,
+      "percentage": 2.1146
+    },
+    {
+      "class_id": 25,
+      "class_name": "Mirai-udpplain",
+      "count": 26204,
+      "percentage": 1.9085
+    },
+    {
+      "class_id": 24,
+      "class_name": "Mirai-greip_flood",
+      "count": 22205,
+      "percentage": 1.6173
+    },
+    {
+      "class_id": 7,
+      "class_name": "DDoS-ICMP_Fragmentation",
+      "count": 13262,
+      "percentage": 0.9659
+    },
+    {
+      "class_id": 22,
+      "class_name": "MITM-ArpSpoofing",
+      "count": 9079,
+      "percentage": 0.6613
+    },
+    {
+      "class_id": 15,
+      "class_name": "DDoS-UDP_Fragmentation",
+      "count": 8542,
+      "percentage": 0.6221
+    },
+    {
+      "class_id": 4,
+      "class_name": "DDoS-ACK_Fragmentation",
+      "count": 8395,
+      "percentage": 0.6114
+    },
+    {
+      "class_id": 16,
+      "class_name": "DNS_Spoofing",
+      "count": 5304,
+      "percentage": 0.3863
+    },
+    {
+      "class_id": 26,
+      "class_name": "Recon-HostDiscovery",
+      "count": 3934,
+      "percentage": 0.2865
+    },
+    {
+      "class_id": 27,
+      "class_name": "Recon-OSScan",
+      "count": 2897,
+      "percentage": 0.211
+    },
+    {
+      "class_id": 29,
+      "class_name": "Recon-PortScan",
+      "count": 2412,
+      "percentage": 0.1757
+    },
+    {
+      "class_id": 18,
+      "class_name": "DoS-HTTP_Flood",
+      "count": 2122,
+      "percentage": 0.1546
+    },
+    {
+      "class_id": 32,
+      "class_name": "VulnerabilityScan",
+      "count": 1099,
+      "percentage": 0.08
+    },
+    {
+      "class_id": 5,
+      "class_name": "DDoS-HTTP_Flood",
+      "count": 843,
+      "percentage": 0.0614
+    },
+    {
+      "class_id": 11,
+      "class_name": "DDoS-SlowLoris",
+      "count": 689,
+      "percentage": 0.0502
+    },
+    {
+      "class_id": 17,
+      "class_name": "DictionaryBruteForce",
+      "count": 385,
+      "percentage": 0.028
+    },
+    {
+      "class_id": 2,
+      "class_name": "BrowserHijacking",
+      "count": 166,
+      "percentage": 0.0121
+    },
+    {
+      "class_id": 3,
+      "class_name": "CommandInjection",
+      "count": 155,
+      "percentage": 0.0113
+    },
+    {
+      "class_id": 30,
+      "class_name": "SqlInjection",
+      "count": 148,
+      "percentage": 0.0108
+    },
+    {
+      "class_id": 33,
+      "class_name": "XSS",
+      "count": 104,
+      "percentage": 0.0076
+    },
+    {
+      "class_id": 0,
+      "class_name": "Backdoor_Malware",
+      "count": 98,
+      "percentage": 0.0071
+    },
+    {
+      "class_id": 28,
+      "class_name": "Recon-PingSweep",
+      "count": 62,
+      "percentage": 0.0045
+    },
+    {
+      "class_id": 31,
+      "class_name": "Uploading_Attack",
+      "count": 35,
+      "percentage": 0.0025
+    }
+  ],
+  "num_features": 43,
+  "num_classes": 34,
+  "outlier_summary": [
+    {
+      "feature": "ack_flag_number",
+      "outliers": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "Min",
+      "outliers": 58214,
+      "outlier_pct": 4.239937304805855
+    },
+    {
+      "feature": "Protocol Type",
+      "outliers": 50432,
+      "outlier_pct": 3.6731459469538064
+    },
+    {
+      "feature": "Number",
+      "outliers": 57372,
+      "outlier_pct": 4.1786113830233536
+    },
+    {
+      "feature": "ICMP",
+      "outliers": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "fin_flag_number",
+      "outliers": 118769,
+      "outlier_pct": 8.65037815223978
+    },
+    {
+      "feature": "IAT",
+      "outliers": 57472,
+      "outlier_pct": 4.18589474665548
+    },
+    {
+      "feature": "psh_flag_number",
+      "outliers": 120399,
+      "outlier_pct": 8.769096979443434
+    },
+    {
+      "feature": "Tot size",
+      "outliers": 42212,
+      "outlier_pct": 3.0744534563930452
+    },
+    {
+      "feature": "flow_duration",
+      "outliers": 727,
+      "outlier_pct": 0.05295005360555634
+    }
+  ]
+}

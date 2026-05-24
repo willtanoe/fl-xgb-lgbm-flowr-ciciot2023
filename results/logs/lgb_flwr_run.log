@@ -1,0 +1,238 @@
+Flower App configuration warnings in '/home/willtanoe/Documents/fl-xgb-thesis/flwr_app/pyproject.toml':
+- Recommended property "license" missing in [project]
+🎊 Successfully started run 1909308048961649470
+[92mINFO [0m:      Starting logstream for run_id `1909308048961649470`
+[92mINFO [0m:      Starting Flower Simulation
+
+============================================================
+ROUND-ROBIN FL — LGB (10 rounds, +20 trees per round = 200 total)
+============================================================
+[92mINFO [0m:      Starting Flower ServerApp, config: num_rounds=10, no round_timeout
+[92mINFO [0m:      
+[92mINFO [0m:      [INIT]
+[92mINFO [0m:      Requesting initial parameters from one random client
+/home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+  prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+/home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+  parse = parser.parseString(pattern)
+/home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+  parser.resetCache()
+/home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/opentelemetry/util/_importlib_metadata.py:32: DeprecationWarning: SelectableGroups dict interface is deprecated. Use select.
+  return EntryPoints(ep for group_eps in eps.values() for ep in group_eps)
+/home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[36m(ClientAppActor pid=35611)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+[36m(ClientAppActor pid=35611)[0m   prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+[36m(ClientAppActor pid=35611)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+[36m(ClientAppActor pid=35611)[0m   parse = parser.parseString(pattern)
+[36m(ClientAppActor pid=35611)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+[36m(ClientAppActor pid=35611)[0m   parser.resetCache()
+[93mWARNING [0m:   Failed to receive initial parameters from the client. Empty initial parameters will be used.
+[92mINFO [0m:      Starting evaluation of initial global parameters
+[92mINFO [0m:      Evaluation returned no results (`None`)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35611)[0m   └─ [Client 2] LGB fit (round 1, 260740 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 260740 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35611)[0m   └─ [Client 2] LGB eval (round 1) → F1=0.7440, Acc=0.9826
+[36m(ClientAppActor pid=35620)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+[36m(ClientAppActor pid=35620)[0m   prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+[36m(ClientAppActor pid=35620)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+[36m(ClientAppActor pid=35620)[0m   parse = parser.parseString(pattern)
+[36m(ClientAppActor pid=35620)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+[36m(ClientAppActor pid=35620)[0m   parser.resetCache()
+[36m(ClientAppActor pid=35614)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+[36m(ClientAppActor pid=35614)[0m   prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+[36m(ClientAppActor pid=35614)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+[36m(ClientAppActor pid=35614)[0m   parse = parser.parseString(pattern)
+[36m(ClientAppActor pid=35614)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+[36m(ClientAppActor pid=35614)[0m   parser.resetCache()
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 1 (20 trees): F1=0.7440, Acc=0.9826
+    └─ ClientEval 0: F1=0.7440, Acc=0.9826 (10000 samples)
+    └─ ClientEval 1: F1=0.7440, Acc=0.9826 (10000 samples)
+    └─ ClientEval 2: F1=0.7440, Acc=0.9826 (10000 samples)
+    └─ ClientEval 3: F1=0.7440, Acc=0.9826 (10000 samples)
+    └─ ClientEval 4: F1=0.7440, Acc=0.9826 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35620)[0m   └─ [Client 2] LGB fit (round 2, 260740 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 260740 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35620)[0m   └─ [Client 2] LGB eval (round 2) → F1=0.7484, Acc=0.9857[32m [repeated 5x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 2 (40 trees): F1=0.7484, Acc=0.9857
+    └─ ClientEval 0: F1=0.7484, Acc=0.9857 (10000 samples)
+    └─ ClientEval 1: F1=0.7484, Acc=0.9857 (10000 samples)
+    └─ ClientEval 2: F1=0.7484, Acc=0.9857 (10000 samples)
+    └─ ClientEval 3: F1=0.7484, Acc=0.9857 (10000 samples)
+    └─ ClientEval 4: F1=0.7484, Acc=0.9857 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35592)[0m   └─ [Client 2] LGB fit (round 3, 260740 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 260740 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35620)[0m   └─ [Client 1] LGB eval (round 3) → F1=0.7527, Acc=0.9866[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 3 (60 trees): F1=0.7527, Acc=0.9866
+    └─ ClientEval 0: F1=0.7527, Acc=0.9866 (10000 samples)
+    └─ ClientEval 1: F1=0.7527, Acc=0.9866 (10000 samples)
+    └─ ClientEval 2: F1=0.7527, Acc=0.9866 (10000 samples)
+    └─ ClientEval 3: F1=0.7527, Acc=0.9866 (10000 samples)
+    └─ ClientEval 4: F1=0.7527, Acc=0.9866 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35592)[0m   └─ [Client 2] LGB fit (round 4, 260740 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 260740 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35620)[0m   └─ [Client 2] LGB eval (round 4) → F1=0.7497, Acc=0.9864[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 4 (80 trees): F1=0.7497, Acc=0.9864
+    └─ ClientEval 0: F1=0.7497, Acc=0.9864 (10000 samples)
+    └─ ClientEval 1: F1=0.7497, Acc=0.9864 (10000 samples)
+    └─ ClientEval 2: F1=0.7497, Acc=0.9864 (10000 samples)
+    └─ ClientEval 3: F1=0.7497, Acc=0.9864 (10000 samples)
+    └─ ClientEval 4: F1=0.7497, Acc=0.9864 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35614)[0m   └─ [Client 1] LGB fit (round 5, 174669 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 174669 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35615)[0m   └─ [Client 1] LGB eval (round 5) → F1=0.7550, Acc=0.9861[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 5 (100 trees): F1=0.7550, Acc=0.9861
+    └─ ClientEval 0: F1=0.7550, Acc=0.9861 (10000 samples)
+    └─ ClientEval 1: F1=0.7550, Acc=0.9861 (10000 samples)
+    └─ ClientEval 2: F1=0.7550, Acc=0.9861 (10000 samples)
+    └─ ClientEval 3: F1=0.7550, Acc=0.9861 (10000 samples)
+    └─ ClientEval 4: F1=0.7550, Acc=0.9861 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35611)[0m   └─ [Client 2] LGB fit (round 6, 260740 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 260740 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35614)[0m   └─ [Client 1] LGB eval (round 6) → F1=0.7760, Acc=0.9897[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 6 (120 trees): F1=0.7760, Acc=0.9897
+    └─ ClientEval 0: F1=0.7760, Acc=0.9897 (10000 samples)
+    └─ ClientEval 1: F1=0.7760, Acc=0.9897 (10000 samples)
+    └─ ClientEval 2: F1=0.7760, Acc=0.9897 (10000 samples)
+    └─ ClientEval 3: F1=0.7760, Acc=0.9897 (10000 samples)
+    └─ ClientEval 4: F1=0.7760, Acc=0.9897 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35592)[0m   └─ [Client 1] LGB fit (round 7, 174669 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 174669 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35620)[0m   └─ [Client 1] LGB eval (round 7) → F1=0.7335, Acc=0.9862[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 7 (140 trees): F1=0.7335, Acc=0.9862
+    └─ ClientEval 0: F1=0.7335, Acc=0.9862 (10000 samples)
+    └─ ClientEval 1: F1=0.7335, Acc=0.9862 (10000 samples)
+    └─ ClientEval 2: F1=0.7335, Acc=0.9862 (10000 samples)
+    └─ ClientEval 3: F1=0.7335, Acc=0.9862 (10000 samples)
+    └─ ClientEval 4: F1=0.7335, Acc=0.9862 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35615)[0m   └─ [Client 1] LGB fit (round 8, 174669 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 174669 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35611)[0m   └─ [Client 2] LGB eval (round 8) → F1=0.7340, Acc=0.9858[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 8 (160 trees): F1=0.7340, Acc=0.9858
+    └─ ClientEval 0: F1=0.7340, Acc=0.9858 (10000 samples)
+    └─ ClientEval 1: F1=0.7340, Acc=0.9858 (10000 samples)
+    └─ ClientEval 2: F1=0.7340, Acc=0.9858 (10000 samples)
+    └─ ClientEval 3: F1=0.7340, Acc=0.9858 (10000 samples)
+    └─ ClientEval 4: F1=0.7340, Acc=0.9858 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35620)[0m   └─ [Client 2] LGB fit (round 9, 260740 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 260740 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35615)[0m   └─ [Client 2] LGB eval (round 9) → F1=0.7517, Acc=0.9907[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 9 (180 trees): F1=0.7517, Acc=0.9907
+    └─ ClientEval 0: F1=0.7517, Acc=0.9907 (10000 samples)
+    └─ ClientEval 1: F1=0.7517, Acc=0.9907 (10000 samples)
+    └─ ClientEval 2: F1=0.7517, Acc=0.9907 (10000 samples)
+    └─ ClientEval 3: F1=0.7517, Acc=0.9907 (10000 samples)
+    └─ ClientEval 4: F1=0.7517, Acc=0.9907 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10]
+[92mINFO [0m:      configure_fit: strategy sampled 1 clients (out of 5)
+[36m(ClientAppActor pid=35620)[0m   └─ [Client 1] LGB fit (round 10, 174669 samples, +20 trees)
+[92mINFO [0m:      aggregate_fit: received 1 results and 0 failures
+  └─ Global model updated (+20 trees, 174669 samples)
+[92mINFO [0m:      configure_evaluate: strategy sampled 5 clients (out of 5)
+[36m(ClientAppActor pid=35611)[0m   └─ [Client 1] LGB eval (round 10) → F1=0.7378, Acc=0.9868[32m [repeated 5x across cluster][0m
+[92mINFO [0m:      aggregate_evaluate: received 5 results and 0 failures
+  Round 10 (200 trees): F1=0.7378, Acc=0.9868
+    └─ ClientEval 0: F1=0.7378, Acc=0.9868 (10000 samples)
+    └─ ClientEval 1: F1=0.7378, Acc=0.9868 (10000 samples)
+    └─ ClientEval 2: F1=0.7378, Acc=0.9868 (10000 samples)
+    └─ ClientEval 3: F1=0.7378, Acc=0.9868 (10000 samples)
+    └─ ClientEval 4: F1=0.7378, Acc=0.9868 (10000 samples)
+[92mINFO [0m:      
+[92mINFO [0m:      [SUMMARY]
+[92mINFO [0m:      Run finished 10 round(s) in 303.05s
+[92mINFO [0m:      	History (loss, distributed):
+[92mINFO [0m:      		round 1: 0.9826
+[92mINFO [0m:      		round 2: 0.9857
+[92mINFO [0m:      		round 3: 0.9866
+[92mINFO [0m:      		round 4: 0.9864
+[92mINFO [0m:      		round 5: 0.9861
+[92mINFO [0m:      		round 6: 0.9897
+[92mINFO [0m:      		round 7: 0.9862
+[92mINFO [0m:      		round 8: 0.9858
+[92mINFO [0m:      		round 9: 0.9907
+[92mINFO [0m:      		round 10: 0.9868
+[92mINFO [0m:      	History (metrics, distributed, evaluate):
+[92mINFO [0m:      	{'accuracy': [(1, 0.9826),
+[92mINFO [0m:      	              (2, 0.9856999999999999),
+[92mINFO [0m:      	              (3, 0.9865999999999999),
+[92mINFO [0m:      	              (4, 0.9864),
+[92mINFO [0m:      	              (5, 0.9861000000000001),
+[92mINFO [0m:      	              (6, 0.9897),
+[92mINFO [0m:      	              (7, 0.9862),
+[92mINFO [0m:      	              (8, 0.9858),
+[92mINFO [0m:      	              (9, 0.9907),
+[92mINFO [0m:      	              (10, 0.9868)],
+[92mINFO [0m:      	 'f1_macro': [(1, 0.7439698850025768),
+[92mINFO [0m:      	              (2, 0.7483717983406452),
+[92mINFO [0m:      	              (3, 0.7526973292879349),
+[92mINFO [0m:      	              (4, 0.7497220051195732),
+[92mINFO [0m:      	              (5, 0.7550388776339989),
+[92mINFO [0m:      	              (6, 0.7760471767593088),
+[92mINFO [0m:      	              (7, 0.7335161235560334),
+[92mINFO [0m:      	              (8, 0.7339923470664017),
+[92mINFO [0m:      	              (9, 0.7516707586739886),
+[92mINFO [0m:      	              (10, 0.7377811454595491)]}
+[92mINFO [0m:      
+[36m(ClientAppActor pid=35592)[0m   └─ [Client 2] LGB eval (round 10) → F1=0.7378, Acc=0.9868[32m [repeated 4x across cluster][0m
+[36m(ClientAppActor pid=35592)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=35592)[0m   prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=35592)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=35592)[0m   parse = parser.parseString(pattern)[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=35592)[0m /home/willtanoe/micromamba/envs/vel/lib/python3.10/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'[32m [repeated 2x across cluster][0m
+[36m(ClientAppActor pid=35592)[0m   parser.resetCache()[32m [repeated 2x across cluster][0m
+[92mINFO [0m:      

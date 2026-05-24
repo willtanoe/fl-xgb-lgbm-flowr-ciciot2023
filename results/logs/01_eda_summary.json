@@ -1,0 +1,25 @@
+{
+  "train_rows": 5491971,
+  "val_rows": 1176851,
+  "test_rows": 1176851,
+  "num_features": 46,
+  "num_classes": 34,
+  "missing_values": 0,
+  "imbalance_ratio": 6057.771428571428,
+  "constant_columns": [
+    "Telnet",
+    "IRC"
+  ],
+  "top_features_by_variance": [
+    "IAT",
+    "Header_Length",
+    "Covariance",
+    "Srate",
+    "Rate",
+    "Tot sum",
+    "Max",
+    "rst_count",
+    "flow_duration",
+    "Tot size"
+  ]
+}

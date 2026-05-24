@@ -1,0 +1,23 @@
+# Data
+dataset-raw/
+results/preprocessed/
+results/clients/
+results/models/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Flower / FLWR
+.flwr/
+
+# Large generated files
+*.parquet
+*.ubj
+*.npy
+*.pkl
+
+# Not for git
+THESIS.md
